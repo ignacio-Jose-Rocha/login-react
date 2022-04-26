@@ -1,7 +1,10 @@
 import swal from '@sweetalert/with-react';
 
-function register() {
+import { Link } from 'react-router-dom';
+
+function Register() {
     const submitHandler = (event) => {
+
         console.log("Nombre", event.target.nombre.value
             , "Apellido", event.target.apellido.value
             , "Email", event.target.email.value
@@ -11,7 +14,12 @@ function register() {
     return (
 
         <>
-            <div class="contenedor">
+            <div class="contenedor1">
+                <h2>Stax Food Admin Login</h2>
+                <h2>registro de usuario</h2>
+            </div>
+            <div class="contenedor5">
+
                 <form onSubmit={submitHandler}>
                     <label>
                         <span>Nombre:</span>
@@ -40,8 +48,12 @@ function register() {
                     <button type="submit">register</button>
                 </form>
             </div>
+            <button>
+                <Link to="/" className="btn btn-primary">inicio</Link></button>
+
+
         </>
     )
 }
 
-export default register;
+export default Register;

@@ -56,5 +56,23 @@
 .contenedor{
   color:black;
   background-color: aliceblue;
+ margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
 }
-
+.contenedor5 {
+  color: black;
+  background-color: aliceblue;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
+}
+.button{
+  background-color: antiquewhite;
+}

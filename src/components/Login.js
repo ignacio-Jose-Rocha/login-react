@@ -1,6 +1,6 @@
 import swal from '@sweetalert/with-react';
 import { useState, useEffect } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function Login() {
     const [tipo, setTipo] = useState('');
     useEffect(() => {
@@ -13,6 +13,8 @@ function Login() {
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
+        const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
         if (email === 'test@test.com' && password === 'test') {
             document.getElementById("mensaje").innerHTML = "";
             swal(<div id="swal">Ingresaste correctamente
@@ -25,6 +27,15 @@ function Login() {
                 buttons: ["OK", "Cancelar"],
 
             });
+            return;
+        }
+        if (email === '' || password === '') {
+            document.getElementById("mensaje").innerHTML = "los campos no pueden estar vacios";
+            return;
+        }
+        if (email !== '' && !regexEmail.test(email)) {
+            document.getElementById("mensaje").innerHTML = "debes escribir una direccion valida";
+            return;
         }
         else {
             document.getElementById("mensaje").innerHTML = "Usuario o contraseña incorrectos";
@@ -77,6 +88,12 @@ function Login() {
                 </form>
 
             </div>
+
+
+            <button>
+                <Link to="/register" className="btn btn-primary">desea registrarse?</Link></button>
+
+
         </>
     )
 
