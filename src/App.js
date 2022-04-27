@@ -8,15 +8,16 @@ import Register from './components/Register.js';
 function App() {
   return (
     <Router>
-
+      <div className="App">
+        
       <Routes>
-        <div className="App">
+       
           <Route exact path="/" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />
-        </div>
+      
       </Routes>
 
-
+      </div>
 
     </Router>
   );
