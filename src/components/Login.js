@@ -1,21 +1,30 @@
 import swal from '@sweetalert/with-react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, Navigate } from 'react-router-dom';
 function Login() {
+    let navigate = useNavigate();
     const [tipo, setTipo] = useState('');
+    const [register, setRegister] = useState(false);
     useEffect(() => {
         const favs = document.getElementById("type").value;
         setTipo(favs);
+        
+
 
     }, []);
 
-    const submitHandler = (event) => {
+    const SubmitHandler = (event) => {
+
         event.preventDefault();
         const email = event.target.email.value;
         const password = event.target.password.value;
         const regexEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (email === 'test@test.com' && password === 'test') {
+
+            setRegister(true);
+
+
             document.getElementById("mensaje").innerHTML = "";
             swal(<div id="swal">Ingresaste correctamente
                 <br />
@@ -30,6 +39,7 @@ function Login() {
             return;
         }
         if (email === '' || password === '') {
+
             document.getElementById("mensaje").innerHTML = "los campos no pueden estar vacios";
             return;
         }
@@ -44,17 +54,19 @@ function Login() {
 
     return (
         <>
+            {register && <Navigate to="/sucess" />}
             <div class="contenedor1">
                 <h2>Stax Food Admin Login</h2>
 
             </div>
-            <div id="mensaje">
+
+            <div id="mensaje" class="Mensaje">
 
             </div>
             <div class="contenedor">
                 <h2>Please fill in your unique admin login details below</h2>
 
-                <form onSubmit={submitHandler}>
+                <form onSubmit={SubmitHandler}>
                     <label>
                         <span>Email Address:</span>
                         <br />
@@ -83,8 +95,9 @@ function Login() {
                     </label>
 
                     <br />
-                    <button type="submit">Sign in</button>
-
+                    <div class="ho">
+                        <button type="submit">Sign in</button>
+                    </div>
                 </form>
 
             </div>

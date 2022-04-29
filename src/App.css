@@ -47,8 +47,15 @@
 
 #mensaje{
   color:red;
-
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid black;
 }
+
+
 .contenedor1{
   color:aliceblue;
 }
@@ -75,4 +82,14 @@
 }
 .button{
   background-color: antiquewhite;
+}
+.sucess{
+ color:green;
+ background-color:bisque;
+margin-left: auto;
+margin-right: auto;
+width: 50%;
+padding: 10px;
+border-radius: 10px;
+border: 1px solid black;
 }

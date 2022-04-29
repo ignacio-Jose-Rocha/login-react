@@ -4,56 +4,63 @@ import { Link } from 'react-router-dom';
 
 function Register() {
     const submitHandler = (event) => {
+        event.preventDefault();
+        if (event.target.nombre.value !== "" && event.target.apellido.value !== "" && event.target.email.value !== "" && event.target.password.value !== "") {
 
-        console.log("Nombre", event.target.nombre.value
-            , "Apellido", event.target.apellido.value
-            , "Email", event.target.email.value
-            , "Password", event.target.password.value);
-        swal(<h2>datos guardados</h2>);
+            console.log("Nombre", event.target.nombre.value
+                , "Apellido", event.target.apellido.value
+                , "Email", event.target.email.value
+                , "Password", event.target.password.value);
+            swal(<h2>datos guardados</h2>);
+        }
+        else {
+
+            swal(<h2>no se puede guardar datos vacios</h2>);
+        }
     }
-    return (
+        return (
 
-        <>
-            <div class="contenedor1">
-                <h2>Stax Food Admin Login</h2>
-                <h2>registro de usuario</h2>
-            </div>
-            <div class="contenedor5">
+            <>
+                <div class="contenedor1">
+                    <h2>Stax Food Admin Login</h2>
+                    <h2>registro de usuario</h2>
+                </div>
+                <div class="contenedor5">
 
-                <form onSubmit={submitHandler}>
-                    <label>
-                        <span>Nombre:</span>
+                    <form onSubmit={submitHandler}>
+                        <label>
+                            <span>Nombre:</span>
+                            <br />
+                            <input type="text" name="nombre" />
+                        </label>
                         <br />
-                        <input type="text" name="nombre" />
-                    </label>
-                    <br />
 
-                    <label>
-                        <span>Apellido:</span>
+                        <label>
+                            <span>Apellido:</span>
+                            <br />
+                            <input type="text" name="apellido" />
+                        </label>
                         <br />
-                        <input type="text" name="apellido" />
-                    </label>
-                    <br />
-                    <label>
-                        <span>Email:</span>
+                        <label>
+                            <span>Email:</span>
+                            <br />
+                            <input type="email" name="email" />
+                        </label>
                         <br />
-                        <input type="email" name="email" />
-                    </label>
-                    <br />
-                    <label>
-                        <span>Password:</span>
-                        <br />
-                        <input type="password" name="password" />
-                    </label>
-                    <button type="submit">register</button>
-                </form>
-            </div>
-            <button>
-                <Link to="/" className="btn btn-primary">inicio</Link></button>
+                        <label>
+                            <span>Password:</span>
+                            <br />
+                            <input type="password" name="password" />
+                        </label>
+                        <button type="submit">register</button>
+                    </form>
+                </div>
+                <button>
+                    <Link to="/" className="btn btn-primary">inicio</Link></button>
 
 
-        </>
-    )
-}
+            </>
+        )
+    }
 
-export default Register;
+    export default Register;

@@ -4,7 +4,9 @@ import {
   BrowserRouter as Router,
   Route, Routes
 } from "react-router-dom";
+
 import Register from './components/Register.js';
+import Sucess from './components/Sucess.js';
 function App() {
   return (
     <Router>
@@ -14,7 +16,7 @@ function App() {
        
           <Route exact path="/" element={<Login/>} />
           <Route exact path="/register" element={<Register/>} />
-      
+          <Route exact path="/sucess" element={<Sucess />} />
       </Routes>
 
       </div>
