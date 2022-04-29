@@ -5,7 +5,7 @@ import {
   Route, Routes
 } from "react-router-dom";
 
-import Register from './components/Register.js';
+import Register from './components/register.js';
 import Sucess from './components/Sucess.js';
 function App() {
   return (
