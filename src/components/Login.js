@@ -8,7 +8,7 @@ function Login() {
     useEffect(() => {
         const favs = document.getElementById("type").value;
         setTipo(favs);
-        
+
 
 
     }, []);
@@ -23,7 +23,7 @@ function Login() {
         if (email === 'test@test.com' && password === 'test') {
 
             setRegister(true);
-
+            localStorage.setItem('correo', event.target.email.value);
 
             document.getElementById("mensaje").innerHTML = "";
             swal(<div id="swal">Ingresaste correctamente
